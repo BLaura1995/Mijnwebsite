@@ -4,12 +4,121 @@
     box-sizing: border-box;
 }
 
-header {
-    background-color: red;
-    margin: 10px;
-    padding: 10px;
+body {
+    background-color: #756F9D;
+}
+
+//variables
+$colorlightgreen:#B8E5D1;
+$colorwhite:#fff;
+$heenfs: 3.25rem;
+$colorpurple:#D3C4E3;
+$darkpurple: #756F9D;
+//end variables
+//mixins
+@mixin container {
+    width: 50%;
+    color: $colorwhite;
     text-align: center;
+    margin: 20px;
+    padding: 70px 30px;
+}
+
+@mixin h1 {
+    text-transform: uppercase;
+    font-size: $heenfs;
+    color: $darkpurple;
+    padding: 20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.hero {
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    header {
+        @include container;
+        width: 60%;
+        // background: $colorlightgreen;
+        h1 {
+            @include h1;
+        }
+    }
+    .links {
+        @include container;
+        width: 40%;
+        color: darkgray;
+        h1 {
+            @include h1;
+        }
+    }
+    .paragraaf {
+        font-size: 1.25rem;
+        padding: 5px;
+        color: darkgrey;
+    }
+    .paragraaf p {
+        padding: 10px;
+    }
+}
+
+article {
+    @include container;
+    width: 50%;
+    color: white;
+    // background: $colorpurple;
     h1 {
+        @include h1;
         color: white;
+    }
+    h2 {
+        font-size: 1.25;
+        color: grey;
+        padding: 20px;
+    }
+    p {
+        color: grey;
+    }
+}
+
+.rechts {
+    @include container;
+    width: 50%;
+    h1 {
+        @include h1;
+        color: #756F9D;
+    }
+}
+
+.groen {
+    background: $colorlightgreen;
+}
+
+.paars {
+    background: $colorpurple;
+}
+
+h3 {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 1.55rem;
+}
+
+@media screen and (max-width:800px) {
+    .hero {
+        display: block;
+        width: 70%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        header,
+        .links,
+        article,
+        .rechts {
+            width: 90%;
+        }
     }
 }
